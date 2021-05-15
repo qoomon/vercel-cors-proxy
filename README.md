@@ -1,6 +1,4 @@
-# CORS Tube
-Lightweight, CORS-enabled serverless proxy.
-
+# Vercel CORS Proxy
 
 ## Usage Example
 ```js
