@@ -1,0 +1,28 @@
+{
+  "name": "cors-proxy",
+  "version": "1.0.0",
+  "description": "CORS proxy",
+  "author": "Bengt Brodersen",
+  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qoomon/vercel-cors-proxy"
+  },
+  "keywords": [
+    "serverless",
+    "cors",
+    "proxy",
+    "vercel"
+  ],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "vercel": "^22.0.1"
+  }
+}
