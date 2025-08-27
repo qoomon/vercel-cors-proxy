@@ -3,7 +3,7 @@ import * as http from "node:http";
 import * as https from "node:https";
 
 const app = express();
-
+app.use(express.raw({ type: '*/*' })); // ensure body is a buffer
 app.all('/', async (req, res) => {
     const targetParams = parseTargetParameters(req);
     if (!targetParams.url) {
@@ -35,11 +35,14 @@ app.all('/', async (req, res) => {
     targetReq.setHeaders(new Map(Object.entries(req.headersDistinct)
         .filter(([name]) => !name.startsWith('x-vercel-'))));
     targetReq.setHeader('host', targetReqUrl.host);
-    if (req.body) {
+    if (req.body && req.body?.length > 0) {
         targetReq.write(req.body);
     }
+    targetReq.on('error', (err) => {
+        res.status(500).json({ error: "Proxy error", details: err.message });
+    });
     targetReq.end();
-})
+});
 
 function request(url, options = {}, callback) {
     const httpModule = url.protocol === 'https:' ? https : http;
