@@ -23,5 +23,28 @@
   },
   "devDependencies": {
     "vercel": "^52.2.0"
+  },
+  "overrides": {
+    "@vercel/backends": {
+      "path-to-regexp": "8.4.0"
+    },
+    "@vercel/express": {
+      "path-to-regexp": "8.4.0"
+    },
+    "@vercel/fun": {
+      "path-to-regexp": "8.4.0"
+    },
+    "@vercel/hono": {
+      "path-to-regexp": "8.4.0"
+    },
+    "@vercel/node": {
+      "path-to-regexp": "8.4.0"
+    },
+    "@vercel/remix-builder": {
+      "path-to-regexp": "8.4.0"
+    },
+    "router": {
+      "path-to-regexp": "8.4.0"
+    }
   }
 }
